@@ -15,7 +15,8 @@
 ## Metodos expuestos  
 
 ### External API  
-- [Clients](#clients)   
+- [Clients](#clients)
+- [Accounts](#accounts)
 
 ## Clients
   - [Create Client](#create-client)  
@@ -160,8 +161,92 @@ Permite definir un tipo de identificador, ej DNI.
     "metadata": {"hola":"universo"}  
 }  
 
-##### Response (no consegui un 200OK, solo este 404)
+##### Response (no consegui un 200OK, solo este 404)  
 {  
     "uuid": "cf4022ee-9d7a-4690-96a6-8b7af040b770"  
 }  
+
+
+## Accounts  
+  - [Create Client](#create-client)  
+  - [Find Account by Id](#find-account-by-id)  
+  - [Find all Accounts](#find-all-accounts)  
+
+
+### <ins>Create Account</ins>  
+### POST /api/accounts  
+
+Permite crear una cuenta para un cliente pasando un uuid en el body.  
+
+#### Ejemplo de Request y Response  
+
+##### Request  
+{  
+    "client": "9d217374-b4f4-4acb-9f9d-98df0a3a0823",  
+    "currency": "MXN"  
+}  
+
+##### Response  
+{  
+    "uuid": "203f5906-c18f-453d-9e2d-e2dcf0400a8b"  
+}  
+
+
+### <ins>Find Account by Id</ins>  
+### GET /api/accounts/{account_id}  
+
+Permite obtener los datos de una cuenta buscando por account_id.  
+
+#### Ejemplo de Request y Response  
+
+##### Response  
+{  
+    "client": "9d217374-b4f4-4acb-9f9d-98df0a3a0823",  
+    "description": null,  
+    "metadata": null,  
+    "account_type": "COLLECTING",  
+    "account_status": "ACTIVE",  
+    "amount": 0.0,  
+    "currency": "MXN"  
+}  
+
+
+### <ins>Find all Accounts</ins>  
+### GET /api/accounts  
+
+Permite obtener una lista de todas las cuentas.  
+
+#### Ejemplo de Request y Response  
+
+##### Response  
+[  
+    {  
+        "uuid": "64765f25-d236-43e8-8850-97b2b1a91271",  
+        "description": null,  
+        "metadata": null,  
+        "created_at": "2023-08-21T19:24:33.680733Z",  
+        "update_at": "2023-08-21T19:24:33.680764Z",  
+        "account_type": "REGULAR",  
+        "account_status": "ACTIVE",  
+        "amount": 0.0,  
+        "client": "e052d2bf-040a-4051-ac26-012de7648d88",  
+        "tenant": "7365a80b-b1fe-4560-a044-699e33f9554b",  
+        "currency": "MXN"  
+    },  
+    {  
+        "uuid": "12a88168-dfc9-4380-a0b3-56cde20786c8",  
+        "description": null,  
+        "metadata": null,  
+        "created_at": "2023-08-21T19:47:36.143013Z",  
+        "update_at": "2023-08-21T19:47:36.143034Z",  
+        "account_type": "REGULAR",  
+        "account_status": "ACTIVE",  
+        "amount": 0.0,  
+        "client": "cf27603b-9f11-446c-9be2-6705f218b5bb",  
+        "tenant": "7365a80b-b1fe-4560-a044-699e33f9554b",  
+        "currency": "MXN"  
+    }  
+]  
+
+
 
