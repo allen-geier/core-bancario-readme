@@ -3,7 +3,6 @@
 - [CORE BANCARIO](#core-bancario)  
   - [Despliegue](#despliegue)  
   - [Metodos expuestos](#metodos-expuestos)
-  - [External API](#external-api)
 
 ## Despliegue  
 
@@ -19,6 +18,9 @@
 - [Create Client](#create-client)  
 - [Edit Client](#edit-client)  
 - [List Clients](#list-clients)  
+- [Delete Client](#delete-client)  
+- [Get Client by Id](#get-client-by-id)  
+- [Define Client Identifier](#define-client-identifier)  
 
 ### Create Client  
 ### POST /api/clients
@@ -104,6 +106,7 @@ Permite listar todos los clientes.
 [
 
 
+### Delete Client
 ### DELETE /api/clients/{uuid}
 
 Permite borrar un cliente. (por ahora parece que el metodo no esta disponible)
@@ -116,6 +119,7 @@ Permite borrar un cliente. (por ahora parece que el metodo no esta disponible)
 }
 
 
+### Get Client by Id
 ### GET /api/clients/{uuid}
 
 Permite buscar un cliente por ID.
@@ -135,6 +139,7 @@ Permite buscar un cliente por ID.
 }
 
 
+### Define Client Identifier
 ### POST /api/clients/identifier
 
 Permite definir un tipo de identificador, ej DNI.
