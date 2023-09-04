@@ -15,10 +15,12 @@
 ## Metodos expuestos  
 
 ### External API  
-- [Clients](#clients)
-- [Accounts](#accounts)
+- [Clients](#clients)  
+- [Accounts](#accounts)  
+- [Quotations](#quotations)  
 
-## Clients
+
+## Clients  
   - [Create Client](#create-client)  
   - [Edit Client](#edit-client)  
   - [List Clients](#list-clients)  
@@ -107,7 +109,7 @@ Permite listar todos los clientes.
         "metadata": null,  
         "status": "NEW"  
     }  
-[  
+]  
 
 Tambien permite buscar por query params, los posibles campos son: external_id, first_name, last_name
 Path: /api/clients/query?last_name=Gian_Marco
@@ -247,6 +249,155 @@ Permite obtener una lista de todas las cuentas.
         "currency": "MXN"  
     }  
 ]  
+
+Tambien permite buscar por query params, los posibles campos son: account_type, account_status.  
+Path: /api/accounts?account_type=REGULAR  
+
+
+## Quotatios  
+  - [Quote](#quote)  
+  - [Fix Quotation](#fix-quotation)  
+  - [Obtain Quotation](#obtain-quotation)  
+    
+
+### <ins>Quote:</ins>  
+### POST /api/loan-quotation  
+
+Permite crear una cotizacion, con un monto, cuotas e impuestos.
+
+#### Ejemplo de Request y Response
+
+##### Request
+
+{  
+    "amount": 100000,  
+    "installments": 3,  
+    "tna":123,  
+    "tax": 21.0  
+}  
+
+##### Response  
+
+{  
+    "principal": 100000.0,  
+    "plan": [  
+        {  
+            "installment": 1,  
+            "interes": 10250.0,  
+            "tax": 2152.5,  
+            "amortization": 29520.67,  
+            "capital": 70479.33,  
+            "payment": 41923.17,  
+            "fee": 0.0  
+        },  
+        {  
+            "installment": 2,  
+            "interes": 7224.13,  
+            "tax": 1517.07,  
+            "amortization": 33181.97,  
+            "capital": 37297.36,  
+            "payment": 41923.17,  
+            "fee": 0.0  
+        },  
+        {  
+            "installment": 3,  
+            "interes": 3822.98,  
+            "tax": 802.83,  
+            "amortization": 37297.36,  
+            "capital": 0.0,  
+            "payment": 41923.17,  
+            "fee": 0.0  
+        }  
+    ],  
+    "plan_uuid": "c2cad34d-2b48-48ea-9c46-0bf2e45cf423"  
+}  
+
+
+### <ins>Fix Quotation:</ins>  
+### POST /api/loan-fixed-quotation  
+
+TODO  
+
+#### Ejemplo de Request y Response  
+
+##### Request  
+
+{  
+    "amount": 100.0,  
+    "expirations" :[{  
+        "date": "2023-12-22",  
+        "amount": 100,  
+        "fee": 50  
+    }  
+    ],  
+    "arreas_tolerance": 0,  
+    "arreas_interes": 10,  
+    "arreas_tax": 21  
+}  
+
+##### Response  
+
+[  
+    {  
+        "date": "2023-12-22",  
+        "amount": 100,  
+        "fee": 50  
+    }  
+]  
+
+
+### <ins>Obtain Quotation:</ins>  
+### POST /api//loan-quotation/{quotation_id}  
+
+Permite obtener una cotizacion de prestamo, con sus respectivas cuotas e intereses, por id.  
+
+#### Ejemplo de Request y Response  
+
+##### Response  
+
+{  
+    "amount": 100000.0,  
+    "installments": 3,  
+    "tna": 123.0,  
+    "tax": 21.0,  
+    "days_in_year": 360,  
+    "days_in_month": 30,  
+    "expired": "2023-09-07T07:32:33.417417Z",  
+    "plan": {  
+        "plan": [  
+            {  
+                "fee": 0.0,  
+                "tax": 2152.5,  
+                "capital": 70479.33,  
+                "interes": 10250.0,  
+                "payment": 41923.17,  
+                "installment": 1,  
+                "amortization": 29520.67  
+            },  
+            {  
+                "fee": 0.0,  
+                "tax": 1517.07,  
+                "capital": 37297.36,  
+                "interes": 7224.13,  
+                "payment": 41923.17,  
+                "installment": 2,  
+                "amortization": 33181.97  
+            },  
+            {  
+                "fee": 0.0,  
+                "tax": 802.83,  
+                "capital": 0.0,  
+                "interes": 3822.98,  
+                "payment": 41923.17,  
+                "installment": 3,  
+                "amortization": 37297.36  
+            }  
+        ],  
+        "principal": 100000.0  
+    }  
+}  
+
+
 
 
 
