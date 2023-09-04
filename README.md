@@ -22,7 +22,7 @@
 - [Get Client by Id](#get-client-by-id)  
 - [Define Client Identifier](#define-client-identifier)  
 
-### __Create Client__  
+### _Create Client_  
 ### POST /api/clients
 
 Permite crear un cliente.
