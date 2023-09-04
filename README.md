@@ -19,7 +19,7 @@
 - [Edit Client](#edit-client)  
 - [List Clients](#list-clients)  
 - [Delete Client](#delete-client)  
-- [Get Client by Id](#get-client-by-id)  
+- [Find Client by Id](#find-client-by-id)  
 - [Define Client Identifier](#define-client-identifier)  
 
 ### <ins>Create Client:</ins>  
@@ -119,7 +119,7 @@ Permite borrar un cliente. (por ahora parece que el metodo no esta disponible)
 }
 
 
-### <ins>Get Client by Id</ins>  
+### <ins>Find Client by Id</ins>  
 ### GET /api/clients/{uuid}
 
 Permite buscar un cliente por ID.
