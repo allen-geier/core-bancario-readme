@@ -42,7 +42,7 @@ Permite crear un cliente.
 }
 
 
-### Edit Client
+### <ins>Edit Client</ins>
 ### PATCH /api/clients/{uuid}
 
 Permite modificar los campos del objeto Client que uno quiera.
@@ -68,7 +68,7 @@ Permite modificar los campos del objeto Client que uno quiera.
 }
 
 
-### List Clients  
+### <ins>List Clients</ins>  
 ### GET /api/clients/query
 
 Permite listar todos los clientes.
@@ -106,7 +106,7 @@ Permite listar todos los clientes.
 [
 
 
-### Delete Client
+### <ins>Delete Client</ins>
 ### DELETE /api/clients/{uuid}
 
 Permite borrar un cliente. (por ahora parece que el metodo no esta disponible)
@@ -119,7 +119,7 @@ Permite borrar un cliente. (por ahora parece que el metodo no esta disponible)
 }
 
 
-### Get Client by Id
+### <ins>Get Client by Id</ins>
 ### GET /api/clients/{uuid}
 
 Permite buscar un cliente por ID.
@@ -139,7 +139,7 @@ Permite buscar un cliente por ID.
 }
 
 
-### Define Client Identifier
+### <ins>Define Client Identifier</ins>
 ### POST /api/clients/identifier
 
 Permite definir un tipo de identificador, ej DNI.
