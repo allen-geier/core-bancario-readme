@@ -2,7 +2,8 @@
 
 - [CORE BANCARIO](#core-bancario)  
   - [Despliegue](#despliegue)  
-  - [Métodos expuestos](#metodos)  
+  - [Metodos expuestos](#metodos-expuestos)
+  - [External API](#external-api)
 
 ## Despliegue  
 
@@ -12,8 +13,14 @@
 **Security:** apikey  
 **URL:** https://tegrity-core.onrender.com  
 
-## Métodos expuestos
+## Metodos expuestos  
 
+### External API  
+- [Create Client](#create-client)  
+- [Edit Client](#edit-client)  
+- [List Clients](#list-clients)  
+
+### Create Client  
 ### POST /api/clients
 
 Permite crear un cliente.
@@ -33,6 +40,7 @@ Permite crear un cliente.
 }
 
 
+### Edit Client
 ### PATCH /api/clients/{uuid}
 
 Permite modificar los campos del objeto Client que uno quiera.
@@ -58,6 +66,7 @@ Permite modificar los campos del objeto Client que uno quiera.
 }
 
 
+### List Clients  
 ### GET /api/clients/query
 
 Permite listar todos los clientes.
