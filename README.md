@@ -18,6 +18,8 @@
 - [Clients](#clients)  
 - [Accounts](#accounts)  
 - [Quotations](#quotations)  
+- [Consolidated](#consolidated)
+- [No Core](#no-core)  
 
 
 ## Clients  
@@ -254,7 +256,7 @@ Tambien permite buscar por query params, los posibles campos son: account_type, 
 Path: /api/accounts?account_type=REGULAR  
 
 
-## Quotatios  
+## Quotations  
   - [Quote](#quote)  
   - [Fix Quotation](#fix-quotation)  
   - [Obtain Quotation](#obtain-quotation)  
@@ -347,7 +349,7 @@ TODO
 
 
 ### <ins>Obtain Quotation:</ins>  
-### POST /api//loan-quotation/{quotation_id}  
+### GET /api//loan-quotation/{quotation_id}  
 
 Permite obtener una cotizacion de prestamo, con sus respectivas cuotas e intereses, por id.  
 
@@ -398,6 +400,158 @@ Permite obtener una cotizacion de prestamo, con sus respectivas cuotas e interes
 }  
 
 
+## Consolidated  
+  - [Create Loan](#create-loan)  
+    
+
+### <ins>Create Loan:</ins>  
+### POST /api/loan?COLLECTING=create  
+
+Permite crear un nuevo prestamo, pasandole en el body un client_id y un quotation_id.  
+
+#### Ejemplo de Request y Response  
+
+##### Request  
+
+{  
+    "quotation": "c2cad34d-2b48-48ea-9c46-0bf2e45cf423",  
+    "client": "9d217374-b4f4-4acb-9f9d-98df0a3a0823"  
+}  
+
+##### Response  
+
+{  
+    "uuid": "84c15350-3052-4553-bfd0-3c20fa0f60a7",  
+    "plan": [  
+        {  
+            "fee": 0.0,  
+            "tax": 2152.5,  
+            "capital": 70479.33,  
+            "interes": 10250.0,  
+            "payment": 41923.17,  
+            "installment": 1,  
+            "amortization": 29520.67  
+        },  
+        {  
+            "fee": 0.0,  
+            "tax": 1517.07,  
+            "capital": 37297.36,  
+            "interes": 7224.13,  
+            "payment": 41923.17,  
+            "installment": 2,  
+            "amortization": 33181.97  
+        },  
+        {  
+            "fee": 0.0,  
+            "tax": 802.83,  
+            "capital": 0.0,  
+            "interes": 3822.98,  
+            "payment": 41923.17,  
+            "installment": 3,  
+            "amortization": 37297.36  
+        }  
+    ],  
+    "description": null,  
+    "created_at": "2023-09-04T20:04:16.477614Z",  
+    "update_at": "2023-09-04T20:04:16.477644Z",  
+    "metadata": null,  
+    "external_id": null,  
+    "principal_amount": 100000.0,  
+    "state": "OPEN",  
+    "client": "9d217374-b4f4-4acb-9f9d-98df0a3a0823",  
+    "product": null,  
+    "quotation": "c2cad34d-2b48-48ea-9c46-0bf2e45cf423",  
+    "tenant": "7365a80b-b1fe-4560-a044-699e33f9554b"  
+}  
 
 
+## No Core  
+  - [Get Identifiers](#get-identifiers)  
+  - [Create Identifier](#create-identifier)  
+  - [Currencies](#currencies)  TODO  
+  - [Get States](#get-states)  
+    
+
+### <ins>Get Identifiers:</ins>  
+### GET /api/identifier  
+
+Permite obtener todos los identifiers creados (ej: DNI, CUIT, etc).  
+
+#### Ejemplo de Request y Response  
+
+##### Response  
+
+[  
+    {  
+        "uuid": "6895f8e6-0d21-4a42-a1b9-2979b44b5cac",  
+        "name": "CURP",  
+        "created_at": "2023-08-21T18:11:03.357579Z",  
+        "update_at": "2023-08-21T18:11:03.357612Z",  
+        "tenant": "7365a80b-b1fe-4560-a044-699e33f9554b"  
+    },  
+    {  
+        "uuid": "f48a8e12-29b6-4de1-a1e5-77ad183cb0d2",  
+        "name": "DNI",  
+        "created_at": "2023-09-04T16:46:35.643582Z",  
+        "update_at": "2023-09-04T16:46:35.643617Z",  
+        "tenant": "7365a80b-b1fe-4560-a044-699e33f9554b"  
+    }  
+]  
+
+
+### <ins>Create Identifiers:</ins>  
+### POST /api/identifier  
+
+Permite obtener todos los identifiers creados (ej: DNI, CUIT, etc).  
+
+#### Ejemplo de Request y Response  
+
+##### Request  
+
+{  
+        "name": "CUIL"  
+}  
+
+#### Response  
+
+{  
+    "uuid": "cc1a68f6-0a9a-4c0b-88c0-ac3a6e89e6a8",  
+    "name": "CUIL",  
+    "created_at": "2023-09-04T20:22:08.796444Z",  
+    "update_at": "2023-09-04T20:22:08.796466Z",  
+    "tenant": "7365a80b-b1fe-4560-a044-699e33f9554b"  
+}  
+
+
+### <ins>Get States:</ins>  
+### POST /api/states  
+
+Permite obtener todos un listado con todos los estados.  
+
+#### Ejemplo de Request y Response  
+
+##### Response  
+
+[  
+    {  
+        "uuid": "0d1aaec0-f8ab-4233-9117-eec063920395",  
+        "name": "Aguascalientes",  
+        "created_at": "2023-08-15T16:54:42.633938Z",  
+        "update_at": "2023-08-15T16:57:09.837949Z",  
+        "metadata": null,  
+        "country": "MEX"  
+    },  
+    {  
+        "uuid": "81d7b119-907c-4754-81a6-dfde54230702",  
+        "name": "Baja California",  
+        "created_at": "2023-08-15T16:57:49.460312Z",  
+        "update_at": "2023-08-21T16:39:35.410997Z",  
+        "metadata": null,  
+        "country": "MEX"  
+    },  
+    etc.  
+]  
+
+El metodo tambien admite buscar por query param, por country.  
+Path: /api/states?country=MX  
 
