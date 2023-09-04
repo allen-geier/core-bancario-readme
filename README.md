@@ -1,4 +1,4 @@
-# CORE BANCARIO
+# TEGRITY CORE 2
 
 - [CORE BANCARIO](#core-bancario)  
   - [Despliegue](#despliegue)  
@@ -22,7 +22,7 @@
 - [Get Client by Id](#get-client-by-id)  
 - [Define Client Identifier](#define-client-identifier)  
 
-### Create Client  
+### __Create Client__  
 ### POST /api/clients
 
 Permite crear un cliente.
