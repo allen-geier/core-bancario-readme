@@ -15,12 +15,15 @@
 ## Metodos expuestos  
 
 ### External API  
-- [Create Client](#create-client)  
-- [Edit Client](#edit-client)  
-- [List Clients](#list-clients)  
-- [Delete Client](#delete-client)  
-- [Find Client by Id](#find-client-by-id)  
-- [Define Client Identifier](#define-client-identifier)  
+- [Clients](#clients)   
+
+## Clients
+  - [Create Client](#create-client)  
+  - [Edit Client](#edit-client)  
+  - [List Clients](#list-clients)  
+  - [Delete Client](#delete-client)  
+  - [Find Client by Id](#find-client-by-id)  
+  - [Define Client Identifier](#define-client-identifier)  
 
 ### <ins>Create Client:</ins>  
 ### POST /api/clients
@@ -105,11 +108,13 @@ Permite listar todos los clientes.
     }  
 [  
 
+Tambien permite buscar por query params, los posibles campos son: external_id, first_name, last_name
+Path: /api/clients/query?last_name=Gian_Marco
 
 ### <ins>Delete Client:</ins>  
 ### DELETE /api/clients/{uuid}
 
-Permite borrar un cliente. (por ahora parece que el metodo no esta disponible)
+Permite borrar un cliente. (por ahora parece que el metodo no esta disponible) (es un soft delete)
 
 #### Ejemplo de Request y Response
 
@@ -149,7 +154,7 @@ Permite definir un tipo de identificador, ej DNI.
 ##### Request
 {  
     "client": "9d217374-b4f4-4acb-9f9d-98df0a3a0823",  
-    "identifier_type":"DNI",  
+    "identifier_type":"CUIT",  
     "identifier_key":"39371777",  
     "description": "",  
     "metadata": {"hola":"universo"}  
@@ -157,6 +162,6 @@ Permite definir un tipo de identificador, ej DNI.
 
 ##### Response (no consegui un 200OK, solo este 404)
 {  
-    "detail": "identifier name not found"  
+    "uuid": "cf4022ee-9d7a-4690-96a6-8b7af040b770"  
 }  
 
