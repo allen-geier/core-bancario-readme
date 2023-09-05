@@ -252,7 +252,7 @@ Permite obtener una lista de todas las cuentas.
     }  
 ]  
 
-Tambien permite buscar por query params, los posibles campos son: account_type, account_status.  
+Tambien permite buscar por query params, los posibles campos son: uuid, account_type, account_status, client, client__external_id.  
 Path: /api/accounts?account_type=REGULAR  
 
 
@@ -468,9 +468,10 @@ Permite crear un nuevo prestamo, pasandole en el body un client_id y un quotatio
 ## No Core  
   - [Get Identifiers](#get-identifiers)  
   - [Create Identifier](#create-identifier)  
-  - [Currencies](#currencies)  TODO  
   - [Get States](#get-states)  
-    
+  - [Get Currencies](#get-currencies)  
+  - [Get Countries](#get-countries)  
+
 
 ### <ins>Get Identifiers:</ins>  
 ### GET /api/identifier  
@@ -554,4 +555,49 @@ Permite obtener todos un listado con todos los estados.
 
 El metodo tambien admite buscar por query param, por country.  
 Path: /api/states?country=MX  
+
+
+### <ins>Get Currencies:</ins>  
+### GET /api/currencies  
+
+Permite obtener todas las monedas ej: MXN, ARS, USD, EUR, etc.  
+
+#### Ejemplo de Request y Response  
+
+##### Response  
+
+[  
+    {  
+        "iso4217": "MXN",  
+        "name": "Peso Mexicano",  
+        "description": "",  
+        "metadata": null,  
+        "created_at": "2023-08-21T18:41:21.983789Z",  
+        "update_at": "2023-08-21T18:41:21.983804Z",  
+        "digits_after_decimals": 2  
+    }  
+]  
+
+
+### <ins>Get Countries:</ins>  
+### GET /api/countries  
+
+Permite obtener todas los paises ej: MEX, ARG, etc.  
+
+#### Ejemplo de Request y Response  
+
+##### Response  
+
+[  
+    {  
+        "iso3": "MEX",  
+        "iso2": "MX",  
+        "name": "Mexico",  
+        "description": "",  
+        "metadata": null,  
+        "created_at": "2023-08-15T16:54:24.002248Z",  
+        "update_at": "2023-08-15T16:54:24.002264Z"  
+    }  
+]  
+
 
