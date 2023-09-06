@@ -182,7 +182,7 @@ Permite definir un tipo de identificador, ej DNI.
 ```
 
 
-##### Response (no consegui un 200OK, solo este 404)  
+##### Response   
 ```json
 {
     "uuid": "cf4022ee-9d7a-4690-96a6-8b7af040b770"
