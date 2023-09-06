@@ -38,11 +38,13 @@ Permite crear un cliente.
 #### Ejemplo de Request y Response
 
 ##### Request
-{  
-    "first_name":"{{$randomFirstName}}",  
-    "middel_name": "{{$randomFirstName}}",  
-    "last_name": "{{$randomLastName}}"  
-}  
+```json
+{
+    "first_name":"{{$randomFirstName}}",
+    "middel_name": "{{$randomFirstName}}",
+    "last_name": "{{$randomLastName}}"
+}
+```
 
 ##### Response
 {  
@@ -314,7 +316,7 @@ Permite crear una cotizacion, con un monto, cuotas e impuestos.
     "plan_uuid": "c2cad34d-2b48-48ea-9c46-0bf2e45cf423"  
 }  
 
-
+API en construccion.
 ### <ins>Fix Quotation:</ins>  
 ### POST /api/loan-fixed-quotation  
 
