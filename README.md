@@ -283,7 +283,7 @@ Permite obtener una lista de todas las cuentas.
 ```
 
 Tambien permite buscar por query params, los posibles campos son: uuid, account_type, account_status, client, client__external_id.  
-Path: /api/accounts?account_type=REGULAR  
+Path: /api/accounts/query?client__external_id=gustavito&client=b287dab4-7571-4a25-a7fc-52ec0bfc7435  
 
 
 ## Quotations  
