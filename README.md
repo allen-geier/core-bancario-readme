@@ -162,6 +162,9 @@ Permite buscar un cliente por ID.
 }
 ```
 
+También permite buscar por query params, por ej:
+/api/clients/fb0ae303-89a0-4b79-88c9-8885e9b58418?details=accounts,loans
+
 
 ### <ins>Define Client Identifier:</ins>  
 ### POST /api/clients/identifier
