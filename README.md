@@ -1,6 +1,7 @@
 # TEGRITY CORE 2
 
-- [CORE BANCARIO](#core-bancario)  
+  - [QUOTATION](#quotation)
+  - [CORE BANCARIO](#core-bancario)  
   - [Despliegue](#despliegue)  
   - [Metodos expuestos](#metodos-expuestos)
 
